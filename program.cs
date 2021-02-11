@@ -43,6 +43,7 @@ namespace Assignment
             int m = 75;
             int l = 105;
             int xl = 125;
+            double careFee;
             //DETERMINING DOG WEIGHT VS SIZE TO FIND COST
             if(dogWeight<15){
                 careFee = s*weeksOfCare;
@@ -56,6 +57,8 @@ namespace Assignment
             else if(dogWeight>80){
                 careFee = xl*weeksOfCare;
             }
+
+            Console.WriteLine($"CLIENT ID: {idNum}\nDOGS NAME: {dogName}\nDOGS BREED: {dogBreed}\nDOGS AGE: {dogAge}\nNUMBER OF WEEKS OF CARE: {weeksOfCare}\nDOG WEIGHT: {dogWeight}\nTOTAL BILL: {careFee}");
         }
     }
 }
