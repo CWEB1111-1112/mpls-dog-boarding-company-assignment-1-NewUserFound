@@ -7,45 +7,55 @@ namespace Assignment
     **/
     class Program
     {
-        static void Main(string[] args)
+        static void main(string[] args)
         {
+            //NEED TO ADD CONVERT METHOD FOR INPUT STRINGS TO CONVERT TO THE RIGHT DATA TYPE
+            int idNum;
+            string idNumString;
+            string dogName;
+            string dogBreed;
+            double dogAge;
+            string weeksOfCareString;
+            double weeksOfCare;
+            string dogWeightString;
+            int dogWeight;
+            //string careFeeString;
+
              //INPUT DATA FOR CLIENT
             Console.WriteLine("Enter your ID Number: ");
-            var idNum = Console.ReadLine();
+            idNumString = Console.ReadLine();
+            idNum = Convert.ToInt16(idNumString);
             Console.WriteLine("Enter your dogs name: ");
-            var dogName = Console.ReadLine();
+            dogName = Console.ReadLine();
             Console.WriteLine("Enter your dogs breed: ");
-            var dogBreed = Console.ReadLine();
+            dogBreed = Console.ReadLine();
             Console.WriteLine("Enter your dogs age: ");
-            var dogAge = Console.ReadLine();
+            dogAge = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter the number of weeks you need care for: ");
-            var weeksOfCare = Console.ReadLine();
+            weeksOfCareString = Console.ReadLine();
+            weeksOfCare = Convert.ToDouble(weeksOfCareString);
             Console.WriteLine("Enter your dogs current weight: ");
-            var dogWeight = Console.ReadLine();
-
+            dogWeightString = Console.ReadLine();
+            dogWeight = Convert.ToInt16(dogWeightString);
+            
             //VARIABLES FOR COST ACCORDING TO DOG SIZE
-            var cost = x;
             int s = 55;
             int m = 75;
             int l = 105;
             int xl = 125;
-
             //DETERMINING DOG WEIGHT VS SIZE TO FIND COST
             if(dogWeight<15){
-                cost = s;
+                careFee = s*weeksOfCare;
             }
-            else if(15<dogWeight<=30){
-                cost = m;
+            else if(dogWeight<=30){
+                careFee = m*weeksOfCare;
             }
-            else if(31<dogWeight<=80){
-                cost = l;
+            else if(dogWeight<=80){
+                careFee = l*weeksOfCare;
             }
             else if(dogWeight>80){
-                cost = xl;
+                careFee = xl*weeksOfCare;
             }
-            
-            //FINDING DAYCARE FEE
-            
         }
     }
 }

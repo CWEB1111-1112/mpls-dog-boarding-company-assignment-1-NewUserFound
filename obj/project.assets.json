@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\Assignment\\Assignment.csproj",
+      "projectUniqueName": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\class_Examples\\Assignment\\Assignment.csproj",
       "projectName": "Assignment",
-      "projectPath": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\Assignment\\Assignment.csproj",
+      "projectPath": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\class_Examples\\Assignment\\Assignment.csproj",
       "packagesPath": "C:\\Users\\meiluca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\Assignment\\obj\\",
+      "outputPath": "C:\\Users\\meiluca\\Desktop\\SCHOOL\\secondSemester\\programmingFundamentals2\\class_Examples\\Assignment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\meiluca\\AppData\\Roaming\\NuGet\\NuGet.Config",
