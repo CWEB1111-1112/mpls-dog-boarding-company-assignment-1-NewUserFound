@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value="MPLS DOG CARE"/>
+        <attribute name="authors" value="meiluca"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-02-13 01:28:28 AM"/>
+        <attribute name="created" value="bWVpbHVjYTsyMDIxOENORDgyNTk1Nlo7MjAyMS0wMi0xMjsxMDozMDo1NCBQTTsyODgy"/>
+        <attribute name="edited" value="bWVpbHVjYTsyMDIxOENORDgyNTk1Nlo7MjAyMS0wMi0xMzswMToyODoyOCBBTTsyOzI5ODU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dogName, dogBreed" type="String" array="False" size=""/>
+            <declare name="idNum, dogAge, numOfWeeks, dogWeight" type="Integer" array="False" size=""/>
+            <declare name="totalBill" type="Integer" array="False" size=""/>
+            <declare name="discountedBill" type="Integer" array="False" size=""/>
+            <assign variable="discountedBill" expression="0"/>
+            <declare name="break" type="Boolean" array="False" size=""/>
+            <assign variable="break" expression="FALSE"/>
+            <declare name="checkOut" type="String" array="False" size=""/>
+            <assign variable="checkOut" expression="&quot;&quot;"/>
+            <declare name="newCheckout" type="String" array="False" size=""/>
+            <while expression="break = FALSE">
+                <if expression="checkOut = &quot;&quot;">
+                    <then>
+                        <output expression="&quot;Please enter your ID Number: &quot;" newline="True"/>
+                        <input variable="idNum"/>
+                        <output expression="&quot;Please enter your dogs name: &quot;" newline="True"/>
+                        <input variable="dogName"/>
+                        <output expression="&quot;Please enter your dogs breed: &quot;" newline="True"/>
+                        <input variable="dogBreed"/>
+                        <output expression="&quot;Please enter your dogs age: &quot;" newline="True"/>
+                        <input variable="dogAge"/>
+                        <output expression="&quot;Please enter your dogs weight: &quot;" newline="True"/>
+                        <input variable="dogWeight"/>
+                        <output expression="&quot;Please enter the number of weeks for care: &quot;" newline="True"/>
+                        <input variable="numOfWeeks"/>
+                        <if expression="dogWeight &lt; 15">
+                            <then>
+                                <assign variable="totalBill" expression="55 * numOfWeeks"/>
+                                <output expression="&quot;Your Fee is: &quot; &amp;totalBill" newline="True"/>
+                            </then>
+                            <else>
+                                <if expression="dogWeight &lt;= 30">
+                                    <then>
+                                        <assign variable="totalBill" expression="75 * numOfWeeks"/>
+                                        <output expression="&quot;Your Fee is: &quot; &amp;totalBill" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <if expression="dogWeight &lt;= 80">
+                                            <then>
+                                                <assign variable="totalBill" expression="105 * numOfWeeks"/>
+                                                <output expression="&quot;Your Fee is: &quot; &amp;totalBill" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="totalBill" expression="125 * numOfWeeks"/>
+                                                <output expression="&quot;Your Fee is: &quot; &amp;totalBill" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <if expression="totalBill &gt; 125">
+                            <then>
+                                <output expression="&quot;a 2% discount will be applied to your total bill.&quot;" newline="True"/>
+                                <assign variable="discountedBill" expression="totalBill - (totalBill * 0.02)"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <output expression="&quot;Press any key to checkout or press enter to continue adding orders&quot;" newline="True"/>
+                        <input variable="checkOut"/>
+                        <assign variable="newCheckout" expression="&quot;Bill for ID NUMBER: &quot; &amp;idNum &amp;ToChar(13)&#13;&#10;&amp;&quot;Dog: &quot; &amp;dogName &amp;ToChar(13)&#13;&#10;&amp;&quot;Breed: &quot; &amp;dogBreed &amp;ToChar(13)&#13;&#10;&amp;&quot;Age: &quot;&amp;dogAge &amp;ToChar(13)&#13;&#10;&amp;&quot;Weight: &quot; &amp;dogWeight &amp;ToChar(13)&#13;&#10;&amp;&quot;Total Bill: &quot; &amp;totalBill &amp;ToChar(13)&#13;&#10;&amp;&quot;Discounted Total Bill: &quot; &amp;discountedBill"/>
+                    </then>
+                    <else>
+                        <assign variable="break" expression="TRUE"/>
+                    </else>
+                </if>
+            </while>
+            <output expression="newCheckout" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
