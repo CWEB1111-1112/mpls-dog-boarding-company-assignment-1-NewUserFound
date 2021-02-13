@@ -1,0 +1,84 @@
+Main
+	start
+		Declarations
+		string dogName, dogBreed, checkOut, newCheckout
+		int idNum, dogAge, numOfWeeks, dogWeight, totalWithDiscount
+		int totalBill
+		int discountedBill
+		boolean break
+		
+		Initialize
+		totalWithDiscount = 0
+		discountedBill = 0
+		break = FALSE
+		checkOut = ""
+		
+		while loop break == FALSE
+			if checkOut == ""
+				then
+					output "Please enter your ID Number:"
+					input idNum
+					output "Please enter your dogs name:"
+					input dogName
+					output "Please enter your dogs breed:"
+					input dogBreed
+					output "Please enter your dogs age:"
+					input dogAge
+					output "Please enter your dogs weight:"
+					input dogWeight
+					output "Please enter the number of weeks for care:"
+					input numOfWeeks
+					if dogWeight < 15
+						then
+							assign totalBill = 55 * numOfWeeks
+							output "Your fee is: " +totalBill
+						endthen
+						else
+							if dogWeight <= 30
+								then
+									assign totalBill = 75 * numOfWeeks
+									output "Your fee is: " +totalBill
+								endthen
+								else
+									if dogWeight <= 80
+										then
+											assign totalBill = 105 * numOfWeeks
+											output "Your fee is: " +totalBill
+										endthen
+										else
+											then
+												assign totalBill = 125 * numOfWeeks
+												output "Your fee is: " +totalBill
+											endthen
+										endelse
+									endif
+								endelse
+							endif
+						endelse
+					endif
+					if totalBill > 125
+						then
+							output "a 2% discount will be applied to your total bill"
+							assign discountedBill = -(totalBill*0.02)
+							assign totalWithDiscount = totalBill + discountedBill
+						endthen
+						else
+							then
+								totalWithDiscount = totalBill
+								discountedBill = 0
+							endthen
+						endelse
+					endif
+					assign newCheckout = "Bill for ID Number:" + idNum + "Dog: " + dogName + "Breed: " + dogBreed + "Age: " + dogAge + "Weight: " + dogWeight + "Weeks of care: " + numOfWeeks + "Total Bill: " + totalBill + "Discount: " + discountedBill + "Total after Discount: " + totalWithDiscount
+					output newCheckout
+					output "Press any key to quit or press enter to continue adding orders"
+					input checkOut
+				endthen
+				else
+					then
+						break = TRUE
+					endthen
+				endelse
+			endif
+		endwhile
+	stop

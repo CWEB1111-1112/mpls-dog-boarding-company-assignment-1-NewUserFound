@@ -4,9 +4,9 @@
         <attribute name="name" value="MPLS DOG CARE"/>
         <attribute name="authors" value="meiluca"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2021-02-13 01:35:32 AM"/>
+        <attribute name="saved" value="2021-02-13 02:24:54 AM"/>
         <attribute name="created" value="bWVpbHVjYTsyMDIxOENORDgyNTk1Nlo7MjAyMS0wMi0xMjsxMDozMDo1NCBQTTsyODgy"/>
-        <attribute name="edited" value="bWVpbHVjYTsyMDIxOENORDgyNTk1Nlo7MjAyMS0wMi0xMzswMTozNTozMiBBTTs1OzI5ODE="/>
+        <attribute name="edited" value="bWVpbHVjYTsyMDIxOENORDgyNTk1Nlo7MjAyMS0wMi0xMzswMjoyNDo1NCBBTTs4OzI5ODc="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -21,6 +21,8 @@
             <declare name="checkOut" type="String" array="False" size=""/>
             <assign variable="checkOut" expression="&quot;&quot;"/>
             <declare name="newCheckout" type="String" array="False" size=""/>
+            <declare name="totalWithDiscount" type="Integer" array="False" size=""/>
+            <assign variable="totalWithDiscount" expression="0"/>
             <while expression="break = FALSE">
                 <if expression="checkOut = &quot;&quot;">
                     <then>
@@ -65,11 +67,15 @@
                         <if expression="totalBill &gt; 125">
                             <then>
                                 <output expression="&quot;a 2% discount will be applied to your total bill.&quot;" newline="True"/>
-                                <assign variable="discountedBill" expression="totalBill - (totalBill * 0.02)"/>
+                                <assign variable="discountedBill" expression="-(totalBill * 0.02)"/>
+                                <assign variable="totalWithDiscount" expression="totalBill + discountedBill"/>
                             </then>
-                            <else/>
+                            <else>
+                                <assign variable="totalWithDiscount" expression="totalBill"/>
+                                <assign variable="discountedBill" expression="0"/>
+                            </else>
                         </if>
-                        <assign variable="newCheckout" expression="&quot;Bill for ID NUMBER: &quot; &amp;idNum &amp;ToChar(13)&#13;&#10;&amp;&quot;Dog: &quot; &amp;dogName &amp;ToChar(13)&#13;&#10;&amp;&quot;Breed: &quot; &amp;dogBreed &amp;ToChar(13)&#13;&#10;&amp;&quot;Age: &quot;&amp;dogAge &amp;ToChar(13)&#13;&#10;&amp;&quot;Weight: &quot; &amp;dogWeight &amp;ToChar(13)&#13;&#10;&amp;&quot;Total Bill: &quot; &amp;totalBill &amp;ToChar(13)&#13;&#10;&amp;&quot;Discounted Total Bill: &quot; &amp;discountedBill"/>
+                        <assign variable="newCheckout" expression="&quot;Bill for ID NUMBER: &quot; &amp;idNum &amp;ToChar(13)&#13;&#10;&amp;&quot;Dog: &quot; &amp;dogName &amp;ToChar(13)&#13;&#10;&amp;&quot;Breed: &quot; &amp;dogBreed &amp;ToChar(13)&#13;&#10;&amp;&quot;Age: &quot;&amp;dogAge &amp;ToChar(13)&#13;&#10;&amp;&quot;Weight: &quot; &amp;dogWeight &amp;ToChar(13)&#13;&#10;&amp;&quot;Total Bill: &quot; &amp;totalBill &amp;ToChar(13)&#13;&#10;&amp;&quot;Discount: &quot; &amp;discountedBill &amp;ToChar(13)&#13;&#10;&amp;&quot;Total after Discount: &quot; &amp;totalWithDiscount"/>
                         <output expression="newCheckout" newline="True"/>
                         <output expression="&quot;Press any key to quit or press enter to continue adding orders&quot;" newline="True"/>
                         <input variable="checkOut"/>
